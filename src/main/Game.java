@@ -29,15 +29,11 @@ public abstract class Game extends Player implements Engine{
     @Override
     public void gameStart(){
         
-      
-        
         Scanner input = new Scanner(System.in);
         String name = null;
         int hp,str,dex,agi;
         System.out.println("Greetings adventurer!..");
         System.out.println("You will test our combat system as a knight.");
-
-        
         Knight newKnight = new Knight(); 
         newKnight.setPlayerKnight();
         Player knight = new Knight();   // Runtime Polymorphism is here
@@ -49,10 +45,9 @@ public abstract class Game extends Player implements Engine{
         System.out.println("Your AGI: "+getPlayerAGI() );
         System.out.println("Your LEVEL: "+getPlayerLEVEL());
         System.out.println("Your EXP: "+getPlayerEXP());
-        
         System.out.println("Now, you have to create an enemy.");
+        
         System.out.println("1) Enter enemy's name:");
-                
         name = input.nextLine();
                         
         System.out.println("2) Enter enemy's HP:");
@@ -66,7 +61,6 @@ public abstract class Game extends Player implements Engine{
         
         System.out.println("5) Enter enemy's AGI:");
         agi = input.nextInt();
-        
                 
         Enemy trainingENEMY1 = new Enemy(1,name,hp,str,dex,agi);
         System.out.println("MOB ADI: "+trainingENEMY1.getEnemyName());

@@ -2,15 +2,10 @@ package main;
 
 import java.util.Scanner;
 
-/**
- *
- * @author ALIMENTESE
- */
 public class Menu extends Game{
     
     public void displayMenu(){
         Scanner input = new Scanner(System.in);
-
         System.out.println("                           	 /\\                                                        /\\                               ");
         System.out.println("                                |  |                                                      |  |                               ");
         System.out.println("                               /----\\          Welcome to Rpg Battle Simulator V1        /----\\                               ");

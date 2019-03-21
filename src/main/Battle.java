@@ -16,7 +16,6 @@ public class Battle extends Player implements Skills{
     
     public static int turn = 1;
     public static int option;
-    
     public  String stats ="| Your Stats |      | Enemy Stats |\n"+"   HP: "+getPlayerHP()+"                     HP: "+getEnemyHP()+"\n"+"   STR: "+getPlayerDEX()+ "                    STR: "+getEnemySTR()+"\n   DEF: "+getPlayerSTR()+"     ";
 
     public void showStats(){
@@ -51,12 +50,9 @@ public class Battle extends Player implements Skills{
     }
     
     public void createBattle(){
-        
         Scanner input = new Scanner(System.in);
-        SecureRandom random = new SecureRandom();
-        
+        SecureRandom random = new SecureRandom();   
         while(getPlayerHP() >0 && getEnemyHP() >0){
-            
             System.out.println("(Your HP: "+getPlayerHP()+" Enemy HP: "+getEnemyHP()+" Turn: "+turn+" )");
             System.out.println("1) Basic Attack");
             System.out.println("2) "+getPlayerSkillName()+" ("+getPlayerSkillDesc()+")(Cooldown:"+CD+" turns)");
@@ -64,17 +60,13 @@ public class Battle extends Player implements Skills{
             System.out.println("4) "+getPlayerSkill3Name()+" ("+getPlayerSkill3Desc()+")(Cooldown:"+CD3+" turns)");
             System.out.println("5) "+getPlayerSkill4Name()+" ("+getPlayerSkill4Desc()+")(Cooldown:"+CD4+" turns)");
             System.out.println("0) Show Stats");
-            
-            
             option = input.nextInt();
             enemyDodgeChance();
             while(CD!=getPlayerSkillCD() && option == 2 || CD2!=getPlayerSkillCD2() && option == 3 || CD3!=getPlayerSkillCD3() && option == 4 || CD4!=getPlayerSkillCD4() && option == 5 ){
                 System.out.println("Choose different option!");
                 option = input.nextInt();
             }
-            
             switch (option){
-           
                 case 1 : playerBasicAttack();
                 break;
                             
@@ -99,9 +91,7 @@ public class Battle extends Player implements Skills{
                 }      
                 default : System.out.println("Your choose is wrong! Try Again!");
                 break;                    
-            }
-            // Player's turn is end!
-                
+            }   // Player's turn is end!
             playerDodgeChance();  
             int  enemyChoice = random.nextInt(2)+1; // Enemy's turn is start
             if(getEnemyHP()>=50 && enemyChoice == 2){
@@ -125,15 +115,12 @@ public class Battle extends Player implements Skills{
                 System.out.println("You died. Game is over!");
                 System.out.println("Your LEVEL: "+getPlayerLEVEL());
                 System.out.println("Your EXP: "+getPlayerEXP());
-                
             }
             else if(getEnemyHP()<=0){
-                
                 playerEXP+=250;
                 if(playerEXP>150){
                     playerLEVEL++;
-                }
-                
+                }             
                 System.out.println("You killed enemy. You WON!");
                 System.out.println("Your LEVEL: "+getPlayerLEVEL());
                 System.out.println("Your EXP: "+getPlayerEXP());

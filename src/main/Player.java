@@ -8,15 +8,36 @@ import static main.Enemy.enemyDEX;
 import static main.Enemy.enemyHP;
 
 public class Player implements Skills{
+    
     protected static String playerName;
     protected static int playerClass; // 1-Knight, 2-Mage, 3-Rogue
     protected static int playerHP;
     protected static int playerSTR;
     protected static int playerDEX;
     protected static int playerAGI;
+    protected static int playerAttackPOW;
+    protected static String playerSkillName;
+    protected static String playerSkillDesc;
+    protected static int playerSkillCD;
+    protected static String playerSkill2Name;
+    protected static String playerSkill2Desc;
+    protected static int playerSkillCD2;
+    protected static String playerSkill3Name;
+    protected static String playerSkill3Desc;
+    protected static int playerSkillCD3;
+    protected static String playerSkill4Name;
+    protected static String playerSkill4Desc;
+    protected static int playerSkillCD4;
+    protected static int playerLEVEL;
+    protected static int playerEXP;
+    
+    public static int CD;
+    public static int CD2;
+    public static int CD3;
+    public static int CD4;
+    public static int level;
+    public static int exp;
 
-    
-    
     public int getPlayerLEVEL() {
         return playerLEVEL;
     }
@@ -32,37 +53,7 @@ public class Player implements Skills{
     public void setPlayerEXP(int playerEXP) {
         Player.playerEXP = playerEXP;
     }
-    protected static int playerLEVEL;
-    protected static int playerEXP;
     
-    
-    protected static int playerAttackPOW;
-    
-    public static int CD;
-    public static int CD2;
-    public static int CD3;
-    public static int CD4;
-    
-    public static int level;
-    public static int exp;
-    
-    protected static String playerSkillName;
-    protected static String playerSkillDesc;
-    protected static int playerSkillCD;
-
-    protected static String playerSkill2Name;
-    protected static String playerSkill2Desc;
-    protected static int playerSkillCD2;
-    
-    protected static String playerSkill3Name;
-    protected static String playerSkill3Desc;
-    protected static int playerSkillCD3;
-    
-    protected static String playerSkill4Name;
-    protected static String playerSkill4Desc;
-    protected static int playerSkillCD4;
-    
-
     public int getPlayerAGI() {
         return playerAGI;
     }
@@ -233,8 +224,7 @@ public class Player implements Skills{
                 while(CD4==0){
                     CD4=getPlayerSkillCD3();
                 }
-            }
-                
+            } 
         playerAttackPOW = (random.nextInt(getPlayerSTR()))-(enemyDEX/5);
         enemyHP-=playerAttackPOW;
         if(playerAttackPOW>0){
@@ -243,7 +233,6 @@ public class Player implements Skills{
         else {
             System.out.println("You missed the target!");
         }
-                
     }
         
     @Override

@@ -10,6 +10,7 @@ public class Enemy {
     protected static int enemySTR;
     protected static int enemyDEX;
     protected static int enemyAGI;
+    protected static int enemyAttackPOW;
 
     public static int getEnemyAGI() {
         return enemyAGI;
@@ -26,7 +27,6 @@ public class Enemy {
     public static void setEnemyAttackPOW(int enemyAttackPOW) {
         Enemy.enemyAttackPOW = enemyAttackPOW;
     }
-    protected static int enemyAttackPOW;
     
     public Enemy(int enemyClass, String enemyName, int enemyHP, int enemySTR, int enemyDEX, int enemyAGI) {
         this.enemyClass = enemyClass;
@@ -37,8 +37,6 @@ public class Enemy {
         this.enemyAGI = enemyAGI;
     }
    
-   
-    
     public static String getEnemyName() {
         return enemyName;
     }
