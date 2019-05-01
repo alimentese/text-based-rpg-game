@@ -30,15 +30,71 @@ public class Player implements Skills{
     protected static int playerSkillCD4;
     protected static int playerLEVEL;
     protected static int playerEXP;
+
+
+    protected static int[] inventory;
+    protected static int[] equipped;
     
     public static int CD;
     public static int CD2;
     public static int CD3;
     public static int CD4;
+    
     public static int level;
     public static int exp;
 
-    public int getPlayerLEVEL() {
+    public Player() {
+    	this.setPlayerName(playerName);
+    	this.setPlayerClass(playerClass);
+    	this.setPlayerHP(playerHP);
+    	this.setPlayerSTR(playerSTR);
+    	this.setPlayerDEX(playerDEX);
+    	this.setPlayerAGI(playerAGI);
+    	this.setPlayerSkillName(playerSkillName);
+    	this.setPlayerSkillDesc(playerSkillDesc);
+    	this.setPlayerSkillCD(playerSkillCD);
+    	this.setPlayerSkill2Name(playerSkill2Name);
+    	this.setPlayerSkill2Desc(playerSkill2Desc);
+    	this.setPlayerSkillCD2(playerSkillCD2);
+    	this.setPlayerSkill3Name(playerSkill3Name);
+    	this.setPlayerSkill3Desc(playerSkill3Desc);
+    	this.setPlayerSkillCD3(playerSkillCD3);
+    	this.setPlayerSkill4Name(playerSkill4Name);
+    	this.setPlayerSkill4Desc(playerSkill4Desc);
+    	this.setPlayerSkillCD4(playerSkillCD4);
+    	this.setPlayerLEVEL(playerLEVEL);
+    	this.setPlayerEXP(playerEXP);
+        this.setInventory(inventory);
+        this.setEquipped(equipped);
+    }
+    
+    public Player(String playerName, int playerClass, int playerHP, int playerSTR, int playerDEX, int playerAGI, String playerSkillName, String playerSkillDesc, int playerSkillCD, String playerSkill2Name, String playerSkill2Desc, int playerSkillCD2, String playerSkill3Name, String playerSkill3Desc, int playerSkillCD3, String playerSkill4Name, String playerSkill4Desc, int playerSkillCD4, int playerLEVEL, int playerEXP, int[] inventory, int[] equipped ) {
+    	this.playerName = playerName;
+    	this.playerClass = playerClass;
+    	this.playerHP = playerHP;
+    	this.playerSTR = playerSTR;
+    	this.playerDEX = playerDEX;
+    	this.playerAGI = playerAGI;
+    	this.playerSkillName = playerSkillName;
+    	this.playerSkillDesc = playerSkillDesc;
+    	this.playerSkillCD = playerSkillCD;
+    	this.playerSkill2Name = playerSkill2Name;
+    	this.playerSkill2Desc = playerSkill2Desc;
+    	this.playerSkillCD2 = playerSkillCD2;
+    	this.playerSkill3Name = playerSkill3Name;
+    	this.playerSkill3Desc = playerSkill3Desc;
+    	this.playerSkillCD3 = playerSkillCD3;
+    	this.playerSkill4Name = playerSkill4Name;
+    	this.playerSkill4Desc = playerSkill4Desc;
+    	this.playerSkillCD4 = playerSkillCD4;
+    	this.playerLEVEL = playerLEVEL;
+    	this.playerEXP = playerEXP;
+        this.inventory = inventory;
+        this.equipped = equipped;
+    }
+    
+
+	public int getPlayerLEVEL() {
         return playerLEVEL;
     }
 
@@ -198,6 +254,22 @@ public class Player implements Skills{
         Player.playerSkill4Desc = playerSkill4Desc;
     }
     
+        public static int[] getInventory() {
+        return inventory;
+    }
+
+    public static void setInventory(int[] inventory) {
+        Player.inventory = inventory;
+    }
+
+    public static int[] getEquipped() {
+        return equipped;
+    }
+
+    public static void setEquipped(int[] equipped) {
+        Player.equipped = equipped;
+    }
+    
     public void playerBasicAttack(){
         SecureRandom random = new SecureRandom();
             turn++;
@@ -349,13 +421,21 @@ public class Player implements Skills{
                 else if(CD4<getPlayerSkillCD4()){
                     System.out.println("Skill is still in cooldown. You have to wait "+CD4+" turn!");
                     while(CD4==0){
-                        CD4=getPlayerSkillCD3();
+                        CD4=getPlayerSkillCD4();
                     } 
                 }
             break;
         }
     }
     void print(){
-        System.out.println("Player is ready!...");
+        System.out.println("Player's stats: ");
+        System.out.println("Your HP: "+playerHP );
+        System.out.println("Your STR: "+playerSTR );
+        System.out.println("Your DEX: "+playerDEX );
+        System.out.println("Your AGI: "+playerAGI );
+        System.out.println("Your LEVEL: "+playerLEVEL);
+        System.out.println("Your EXP: "+playerEXP);
     }
+    
+    
 }

@@ -8,7 +8,7 @@ public class Menu extends Game{
         Scanner input = new Scanner(System.in);
         System.out.println("                           	 /\\                                                        /\\                               ");
         System.out.println("                                |  |                                                      |  |                               ");
-        System.out.println("                               /----\\          Welcome to Rpg Battle Simulator V1        /----\\                               ");
+        System.out.println("                               /----\\          Welcome to the Kingdom's Request        /----\\                               ");
         System.out.println("                              [______]             Where Brave Knights Tremble          [______]                               ");
         System.out.println("                               |    |         _____                        _____         |    |                               ");
         System.out.println("                               |[]  |        [     ]                      [     ]        |  []|                               ");

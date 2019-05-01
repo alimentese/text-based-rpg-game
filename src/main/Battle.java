@@ -9,6 +9,7 @@ import static main.Enemy.enemyAttackPOW;
 import static main.Enemy.enemyDEX;
 import static main.Enemy.enemyHP;
 import static main.Enemy.enemySTR;
+import static main.Enemy.getEnemyDEX;
 import static main.Enemy.getEnemyHP;
 import static main.Enemy.getEnemySTR;
 
@@ -16,7 +17,7 @@ public class Battle extends Player implements Skills{
     
     public static int turn = 1;
     public static int option;
-    public  String stats ="| Your Stats |      | Enemy Stats |\n"+"   HP: "+getPlayerHP()+"                     HP: "+getEnemyHP()+"\n"+"   STR: "+getPlayerDEX()+ "                    STR: "+getEnemySTR()+"\n   DEF: "+getPlayerSTR()+"     ";
+    public  String stats ="| Your Stats |      | Enemy Stats |\n"+"   HP: "+getPlayerHP()+"                     HP: "+getEnemyHP()+"\n"+"   STR: "+getPlayerSTR()+ "                    STR: "+getEnemySTR()+"\n   DEX: "+getPlayerDEX()+"                    DEX: "+getEnemyDEX()+"\n        ";
 
     public void showStats(){
         JOptionPane pane = new JOptionPane();  
@@ -124,6 +125,7 @@ public class Battle extends Player implements Skills{
                 System.out.println("You killed enemy. You WON!");
                 System.out.println("Your LEVEL: "+getPlayerLEVEL());
                 System.out.println("Your EXP: "+getPlayerEXP());
+                
             }   
         }   
     }
