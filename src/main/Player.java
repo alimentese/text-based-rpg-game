@@ -2,49 +2,48 @@ package main;
 
 import java.security.SecureRandom;
 import java.util.Scanner;
-import static main.Battle.option;
 import static main.Battle.turn;
-import static main.Enemy.enemyDEX;
 import static main.Enemy.enemyHP;
+
 
 public class Player implements Skills{
     
-    protected static String playerName;
-    protected static int playerClass; // 1-Knight, 2-Mage, 3-Rogue
-    protected static int playerHP;
-    protected static int playerSTR;
-    protected static int playerDEX;
-    protected static int playerAGI;
-    protected static int playerAttackPOW;
-    protected static String playerSkillName;
-    protected static String playerSkillDesc;
-    protected static int playerSkillCD;
-    protected static String playerSkill2Name;
-    protected static String playerSkill2Desc;
-    protected static int playerSkillCD2;
-    protected static String playerSkill3Name;
-    protected static String playerSkill3Desc;
-    protected static int playerSkillCD3;
-    protected static String playerSkill4Name;
-    protected static String playerSkill4Desc;
-    protected static int playerSkillCD4;
-    protected static int playerLEVEL;
-    protected static int playerEXP;
+    private  String playerName;
+    private  int playerClass; // 1-Knight, 2-Mage, 3-Rogue
+    private  int playerHP;
+    private  int playerSTR;
+    private  int playerDEX;
+    private  int playerAGI;
+    public  int playerAttackPOW;
+    private  String playerSkillName;
+    private  String playerSkillDesc;
+    private  int playerSkillCD;
+    private  String playerSkill2Name;
+    private  String playerSkill2Desc;
+    private  int playerSkillCD2;
+    private  String playerSkill3Name;
+    private  String playerSkill3Desc;
+    private  int playerSkillCD3;
+    private  String playerSkill4Name;
+    private  String playerSkill4Desc;
+    private  int playerSkillCD4;
+    int playerLEVEL;
+    int playerEXP;
 
 
-    protected static int[] inventory;
-    protected static int[] equipped;
+    public  int[] inventory;
+    public  int[] equipped;
     
-    public static int CD;
-    public static int CD2;
-    public static int CD3;
-    public static int CD4;
+    public  int CD;
+    public  int CD2;
+    public  int CD3;
+    public  int CD4;
     
-    public static int level;
-    public static int exp;
+
+    
 
     public Player() {
-    	this.setPlayerName(playerName);
+    	/* this.setPlayerName(playerName);
     	this.setPlayerClass(playerClass);
     	this.setPlayerHP(playerHP);
     	this.setPlayerSTR(playerSTR);
@@ -54,7 +53,7 @@ public class Player implements Skills{
     	this.setPlayerSkillDesc(playerSkillDesc);
     	this.setPlayerSkillCD(playerSkillCD);
     	this.setPlayerSkill2Name(playerSkill2Name);
-    	this.setPlayerSkill2Desc(playerSkill2Desc);
+    	this.setPlayerSkill2Desc(playerSkill2Desc); 
     	this.setPlayerSkillCD2(playerSkillCD2);
     	this.setPlayerSkill3Name(playerSkill3Name);
     	this.setPlayerSkill3Desc(playerSkill3Desc);
@@ -66,6 +65,7 @@ public class Player implements Skills{
     	this.setPlayerEXP(playerEXP);
         this.setInventory(inventory);
         this.setEquipped(equipped);
+                */
     }
     
     public Player(String playerName, int playerClass, int playerHP, int playerSTR, int playerDEX, int playerAGI, String playerSkillName, String playerSkillDesc, int playerSkillCD, String playerSkill2Name, String playerSkill2Desc, int playerSkillCD2, String playerSkill3Name, String playerSkill3Desc, int playerSkillCD3, String playerSkill4Name, String playerSkill4Desc, int playerSkillCD4, int playerLEVEL, int playerEXP, int[] inventory, int[] equipped ) {
@@ -96,18 +96,19 @@ public class Player implements Skills{
 
 	public int getPlayerLEVEL() {
         return playerLEVEL;
-    }
+        }
 
     public void setPlayerLEVEL(int playerLEVEL) {
-        Player.playerLEVEL = playerLEVEL;
+        this.playerLEVEL = playerLEVEL;
     }
+    
 
     public int getPlayerEXP() {
         return playerEXP;
     }
 
     public void setPlayerEXP(int playerEXP) {
-        Player.playerEXP = playerEXP;
+        this.playerEXP = playerEXP;
     }
     
     public int getPlayerAGI() {
@@ -115,7 +116,7 @@ public class Player implements Skills{
     }
 
     public void setPlayerAGI(int playerAGI) {
-        Player.playerAGI = playerAGI;
+        this.playerAGI = playerAGI;
     }
  
     public int getPlayerSkillCD() {
@@ -123,7 +124,7 @@ public class Player implements Skills{
     }
 
     public void setPlayerSkillCD(int playerSkillCD) {
-        Player.playerSkillCD = playerSkillCD;
+        this.playerSkillCD = playerSkillCD;
     }
 
     public int getPlayerSkillCD2() {
@@ -131,7 +132,7 @@ public class Player implements Skills{
     }
 
     public void setPlayerSkillCD2(int playerSkillCD2) {
-        Player.playerSkillCD2 = playerSkillCD2;
+        this.playerSkillCD2 = playerSkillCD2;
     }
 
     public int getPlayerSkillCD3() {
@@ -139,7 +140,7 @@ public class Player implements Skills{
     }
 
     public void setPlayerSkillCD3(int playerSkillCD3) {
-        Player.playerSkillCD3 = playerSkillCD3;
+        this.playerSkillCD3 = playerSkillCD3;
     }
 
     public int getPlayerSkillCD4() {
@@ -147,7 +148,7 @@ public class Player implements Skills{
     }
 
     public void setPlayerSkillCD4(int playerSkillCD4) {
-        Player.playerSkillCD4 = playerSkillCD4;
+        this.playerSkillCD4 = playerSkillCD4;
     }
     
     public String getPlayerName() {
@@ -155,7 +156,7 @@ public class Player implements Skills{
     }
 
     public void setPlayerName(String playerName) {
-        Player.playerName = playerName;
+        this.playerName = playerName;
     }
 
     public int getPlayerClass() {
@@ -163,7 +164,7 @@ public class Player implements Skills{
     }
 
     public void setPlayerClass(int playerClass) {
-        Player.playerClass = playerClass;
+        this.playerClass = playerClass;
     }
 
     public int getPlayerHP() {
@@ -171,7 +172,7 @@ public class Player implements Skills{
     }
 
     public void setPlayerHP(int playerHP) {
-        Player.playerHP = playerHP;
+        this.playerHP = playerHP;
     }
 
     public int getPlayerSTR() {
@@ -179,7 +180,7 @@ public class Player implements Skills{
     }
 
     public void setPlayerSTR(int playerSTR) {
-        Player.playerSTR = playerSTR;
+        this.playerSTR = playerSTR;
     }
 
     public int getPlayerDEX() {
@@ -187,7 +188,7 @@ public class Player implements Skills{
     }
 
     public void setPlayerDEX(int playerDEX) {
-        Player.playerDEX = playerDEX;
+        this.playerDEX = playerDEX;
     }
 
     public String getPlayerSkillName() {
@@ -195,7 +196,7 @@ public class Player implements Skills{
     }
 
     public void setPlayerSkillName(String playerSkillName) {
-        Player.playerSkillName = playerSkillName;
+        this.playerSkillName = playerSkillName;
     }
 
     public String getPlayerSkillDesc() {
@@ -203,7 +204,7 @@ public class Player implements Skills{
     }
 
     public void setPlayerSkillDesc(String playerSkillDesc) {
-        Player.playerSkillDesc = playerSkillDesc;
+        this.playerSkillDesc = playerSkillDesc;
     }
 
     public String getPlayerSkill2Name() {
@@ -211,7 +212,7 @@ public class Player implements Skills{
     }
 
     public void setPlayerSkill2Name(String playerSkill2Name) {
-        Player.playerSkill2Name = playerSkill2Name;
+        this.playerSkill2Name = playerSkill2Name;
     }
 
     public String getPlayerSkill2Desc() {
@@ -219,7 +220,7 @@ public class Player implements Skills{
     }
 
     public void setPlayerSkill2Desc(String playerSkill2Desc) {
-        Player.playerSkill2Desc = playerSkill2Desc;
+        this.playerSkill2Desc = playerSkill2Desc;
     }
 
     public String getPlayerSkill3Name() {
@@ -227,7 +228,7 @@ public class Player implements Skills{
     }
 
     public void setPlayerSkill3Name(String playerSkill3Name) {
-        Player.playerSkill3Name = playerSkill3Name;
+        this.playerSkill3Name = playerSkill3Name;
     }
 
     public String getPlayerSkill3Desc() {
@@ -235,7 +236,7 @@ public class Player implements Skills{
     }
 
     public void setPlayerSkill3Desc(String playerSkill3Desc) {
-        Player.playerSkill3Desc = playerSkill3Desc;
+        this.playerSkill3Desc = playerSkill3Desc;
     }
 
     public String getPlayerSkill4Name() {
@@ -243,7 +244,7 @@ public class Player implements Skills{
     }
 
     public void setPlayerSkill4Name(String playerSkill4Name) {
-        Player.playerSkill4Name = playerSkill4Name;
+        this.playerSkill4Name = playerSkill4Name;
     }
 
     public String getPlayerSkill4Desc() {
@@ -251,26 +252,26 @@ public class Player implements Skills{
     }
 
     public void setPlayerSkill4Desc(String playerSkill4Desc) {
-        Player.playerSkill4Desc = playerSkill4Desc;
+        this.playerSkill4Desc = playerSkill4Desc;
     }
     
-        public static int[] getInventory() {
+    public  int[] getInventory() {
         return inventory;
     }
 
-    public static void setInventory(int[] inventory) {
-        Player.inventory = inventory;
+    public  void setInventory(int[] inventory) {
+        this.inventory = inventory;
     }
 
-    public static int[] getEquipped() {
+    public  int[] getEquipped() {
         return equipped;
     }
 
-    public static void setEquipped(int[] equipped) {
-        Player.equipped = equipped;
+    public  void setEquipped(int[] equipped) {
+        this.equipped = equipped;
     }
     
-    public void playerBasicAttack(){
+    public void playerBasicAttack(Enemy enemy, Player player){
         SecureRandom random = new SecureRandom();
             turn++;
             if(CD!=getPlayerSkillCD() && CD!=0){
@@ -297,8 +298,16 @@ public class Player implements Skills{
                     CD4=getPlayerSkillCD3();
                 }
             } 
-        playerAttackPOW = (random.nextInt(getPlayerSTR()))-(enemyDEX/5);
-        enemyHP-=playerAttackPOW;
+        int luck=random.nextInt(4)+1;
+        if(enemy.getEnemyAGI()>player.getPlayerSTR() / 4 && luck == 1){
+            System.out.println("Enemy dodged player's attack!!");
+            playerAttackPOW = 0;
+        }
+        else {
+            playerAttackPOW = (random.nextInt(player.getPlayerSTR()))-(enemy.getEnemyDEX()/5);
+        }
+        
+        enemy.setEnemyHP(enemyHP-=playerAttackPOW);
         if(playerAttackPOW>0){
             System.out.println("Enemy got "+playerAttackPOW+" damage from you!");
         }
@@ -316,9 +325,9 @@ public class Player implements Skills{
                     CD--;
                     turn++;
                     System.out.println("You used "+getPlayerSkillName()+" skill!");
-                    enemyHP-=10;
+                    playerHP-=10;
                     System.out.println("Enemy has stunned for 1 turn!");
-                    option = input.nextInt();// WHAT SKILL DOES.
+                    int option = input.nextInt();// WHAT SKILL DOES.
                     if(CD2!=getPlayerSkillCD2()){
                         CD2--;
                     }
@@ -347,7 +356,7 @@ public class Player implements Skills{
                     CD2--;
                     turn++;
                     System.out.println("You used "+getPlayerSkill2Name()+" skill!");
-                    enemyHP-=5;
+                    playerHP-=5;
                     if(CD!=getPlayerSkillCD()){
                         CD--;
                     }
@@ -377,7 +386,7 @@ public class Player implements Skills{
                     turn++;
                     System.out.println("You used "+getPlayerSkill3Name()+" skill!");
                     playerSTR+=5;
-                    enemyHP-=playerAttackPOW;
+                    playerHP-=playerAttackPOW;
                     if(CD!=getPlayerSkillCD()){
                         CD--;
                     }
@@ -407,7 +416,7 @@ public class Player implements Skills{
                     turn++;
                     System.out.println("You used "+getPlayerSkill4Name()+" skill!");
                     playerAttackPOW+=5;
-                    enemyHP-=playerAttackPOW;
+                    playerHP-=playerAttackPOW;
                     if(CD!=getPlayerSkillCD()){
                         CD--;
                     }
@@ -436,6 +445,7 @@ public class Player implements Skills{
         System.out.println("Your LEVEL: "+playerLEVEL);
         System.out.println("Your EXP: "+playerEXP);
     }
+    
     
     
 }

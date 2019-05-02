@@ -8,6 +8,8 @@ public class Main {
         Scanner input = new Scanner(System.in);
         Menu mainMenu = new Menu();
         mainMenu.displayMenu();
+        
+        
     }
 }
     

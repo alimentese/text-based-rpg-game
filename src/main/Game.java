@@ -4,9 +4,6 @@ package main;
 
 import java.io.File;
 import java.util.Scanner;
-import static main.Battle.option;
-import static main.Enemy.getEnemyHP;
-import static main.Player.playerLEVEL;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.embed.swing.JFXPanel;
@@ -63,8 +60,7 @@ public abstract class Game extends Player implements Engine{
         String bip = "2.mp3";
         Media hit = new Media(new File(bip).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(hit);
-        mediaPlayer.play();
-        
+        mediaPlayer.play();        
         System.out.println("Ebara Krallığı. Beş krallık arasındaki en verimli ovalara ve en geniş topraklara sahip olan krallık. ");
         System.out.println("Ağırlıklı olarak tarım ve hayvancılıkla uğraşan bu krallık, diğer krallıklar ile barış içerisinde  ");
         System.out.println("yaşayan ve onlar ile aktif olarak ticaret yapan bir ülkedir. ");
@@ -155,33 +151,22 @@ public abstract class Game extends Player implements Engine{
             System.out.println("bir an önce krallığımıza çağırıyorum. Teklifimi değerlendiren maceracılar cömertçe ödüllendirilecektir.");
             System.out.println("");
         }
-        mediaPlayer.stop();
         
         System.out.println("--- KARAKTER YARATMA BÖLÜMÜ ---");
         System.out.println("Karakteriniz ismini girin: ");
         String characterName = input.next();
+
         System.out.println("Oynamak istediğiniz class'ı seçin:");
         System.out.println("1) Knight");
         System.out.println("2) Rogue");
         System.out.println("3) Mage");
+        Player player = null;
         int optionClass = input.nextInt();
         
         if(optionClass == 1){
-            /*System.out.println("You chose to play as a knight.");
-            Knight newKnight = new Knight(); 
-            newKnight.setPlayerKnight();
-            
-            System.out.println("Your HP: "+getPlayerHP() );
-            System.out.println("Your STR: "+getPlayerSTR() );
-            System.out.println("Your DEX: "+getPlayerDEX() );
-            System.out.println("Your AGI: "+getPlayerAGI() );
-            System.out.println("Your LEVEL: "+getPlayerLEVEL());
-            System.out.println("Your EXP: "+getPlayerEXP());
-            System.out.println("PLAYER CD1=8 :" +getPlayerSkillCD());
-            System.out.println("SKIL DESC : "+getPlayerSkillDesc());
-          */
+            System.out.println("You chose to play as a knight.");
             System.out.println("-----YENİ KARAKTER-----");
-            Player knight = new Knight("ali", 1, 1000, 99, 10, 5, 
+            player = new Knight(characterName, 1, 100, 7, 10, 3, 
                 "Battle Stomp", "You deal directly 10 damage and knock down enemy for 1 turn.", 10,
                 "Crippling Blow", "Cripple the target with a sweeping blow.Deals 5 physical damage.", 4, 
                 "Enrage", "Motivate yourself with the power of rage. You gain 5 STR and do basic attack.", 5, 
@@ -191,61 +176,58 @@ public abstract class Game extends Player implements Engine{
                 inventory, 
                 equipped
             );
-
-            knight.print();
-            System.out.println("KNIGHT STR: "+knight.getPlayerSTR());
-           knight.inventory = new int[3];
-            knight.inventory[0] = sword1;
-            if(inventory[0] == sword1){
-                knight.setPlayerSTR(playerSTR+5);
-            }
-            System.out.println("ITEMI GIYDIKTEN SONRA STR: "+ knight.getPlayerSTR());
-                    
-                    int hp,str,dex,agi;
-                    String name;
-                    System.out.println("KNIGHT CD1 =10 : " +knight.getPlayerSkillCD());
-                    System.out.println("SKILL DESC: "+knight.getPlayerSkillDesc());
-               
-         System.out.println("Now, you have to create an enemy.");
-        
-        System.out.println("1) Enter enemy's name:");
-        name = input.next();
-                        
-        System.out.println("2) Enter enemy's HP:");
-        hp = input.nextInt();
-                    
-        System.out.println("3) Enter enemy's STR:");
-        str = input.nextInt();
-        
-        System.out.println("4) Enter enemy's DEX:");
-        dex = input.nextInt();
-        
-        System.out.println("5) Enter enemy's AGI:");
-        agi = input.nextInt();
-                
-        Enemy trainingENEMY1 = new Enemy(1,name,hp,str,dex,agi);
-        System.out.println("MOB ADI: "+trainingENEMY1.getEnemyName());
-        System.out.println("MOB HP : "+trainingENEMY1.getEnemyHP());
-        System.out.println("MOB STR: "+trainingENEMY1.getEnemySTR());
-        System.out.println("MOB DEX: "+trainingENEMY1.getEnemyDEX());
-        System.out.println("MOB DEX: "+trainingENEMY1.getEnemyAGI());
-        System.out.println("BATTLE IS STARTED!");
-        Battle newBattle = new Battle();
-        newBattle.createBattle();
-            
-    
+            player.print();
+           /*   System.out.println("İSİM: "+denemeplayer.getPlayerName());
+                System.out.println("SKILL1CD: "+denemeplayer.getPlayerSkillCD());
+                System.out.println("YENİ GİRİLEN İSİM: "+ knight.getPlayerName());
+                System.out.println("deneme player2 ismi : "+ denemeplayer2.getPlayerName());
+                System.out.println("ESKİ İSİM: "+ denemeplayer.getPlayerName());
+                System.out.println("KNIGHT STR: "+knight.getPlayerSTR());
+                knight.inventory = new int[3];
+                knight.inventory[0] = sword1;
+                if(inventory[0] == sword1){
+                    knight.setPlayerSTR(playerSTR+5);
+                }
+                System.out.println("ITEMI GIYDIKTEN SONRA STR: "+ knight.getPlayerSTR());
+            */
         }
         else if(optionClass == 2){
+            System.out.println("You chose to play as a knight.");
+            System.out.println("-----YENİ KARAKTER-----");
+            player = new Mage(characterName, 1, 100, 6, 5, 9, 
+                "Electric Discharge", "An electrical jolt deals 5 air damage", 3,
+                "Bleed Fire", "Enemies will bleed fire when hit.", 4, 
+                "Restoration", "Heal your 25% of your health", 8, 
+                "Cryotherapy", "Consume Frozen surfaces around you and gain 5 dex.", 5, 
+                1, // LEVEL
+                0,
+                inventory, 
+                equipped
+            );
+            player.print();
             
         }
         else if(optionClass == 3){
+            System.out.println("You chose to play as a knight.");
+            System.out.println("-----YENİ KARAKTER-----");
+            player = new Knight(characterName, 1, 100, 6, 7, 7, 
+                "Ballistic Shot", "You deal directly 10 damage.", 10,
+                "Tactical Retreat", "Apply haste to yourself and you gain 4 agilty.", 4, 
+                "First Aid", "You heal yourself 5 healt point.", 5, 
+                "Reactive Shot", "You deal 5 more damage.", 6, 
+                1, // LEVEL
+                0,
+                inventory, 
+                equipped
+            );
+            player.print();
             
         }
         else {
             System.out.println("Yanlış seçim yaptınız!");
         }
         
-        System.out.println("CHAPTER 1 - ORMANDAKİ SIR");
+        System.out.println("BÖLÜM 1 - ORMANDAKİ SIR");
         System.out.println("Güney Palamut Ormanı her zamanki gibi tertemiz ve yeşil ağaçlar ile kaplı bir yer olmuştu.");
         System.out.println("Yüksek ve sık palamut ağaçlarından ismini alan orman, yerleşime uzak olmasından kaynaklanacak ki");
         System.out.println("ki hayvan çeşidinden oldukça zengin bir yerdi. Özellikle geyiklerin yaşadığı bu ormanda avcılık ");
@@ -267,21 +249,20 @@ public abstract class Game extends Player implements Engine{
         int firstStoryOption = input.nextInt();
         if(firstStoryOption == 1){
             System.out.println(characterName+" neyin peşinde olduğunu bilmiyordu. Bu yüzden temkinli gitmeye karar verdi ve silahını kullanıma hazır duruma getirdi. ");
-            System.out.println("1) SİLAH 1");
-            System.out.println("2) silah 2");
+            System.out.println("1) Hafif zırh takımı, kısa kılıç ve kalkan");
+            System.out.println("2) Orta zırh takımı, ");
             System.out.println("3) silah 3");
             System.out.println("");
-            int selectweapon=input.nextInt();
-            if(selectweapon == 1){
+            int selectgear=input.nextInt();
+            if(selectgear == 1){
                 
             }
-            else if(selectweapon == 2){
+            else if(selectgear == 2){
                 
             }
-            else if(selectweapon == 3){
+            else if(selectgear == 3){
                 
-            }
-                
+            }                
             System.out.println("Güney Palamut Ormanının derinlikleri her zaman karanlık ve gizemli olmuştur. Avcılık süresi boyunca "+characterName+" , buraya hiç gelmemişti.");
             System.out.println("Korktuğundan değil ancak derinliklerde farklı canlıların yaşadığından emin olup onları rahatsız etmemenin doğru olduğunu düşünmüştü. ");
             System.out.println("Ta ki bu izleri görene kadar...");         
@@ -341,6 +322,11 @@ public abstract class Game extends Player implements Engine{
                                 // (Karanlıkta çok dezavantaj alınarak goblinlere sürpriz saldırı yapılınabilir.) 
                                 // Goblinlere bu koşullarda saldırmamak gerektiğini öğrenen _________;
                                 // combat kazanılırsa
+                                System.out.println("BATTLE IS STARTED!");
+                                Enemy trainingENEMY1 = new Enemy(1,"Goblin",180,7,5,9);
+                                Battle newBattle = new Battle();
+                                
+                                newBattle.createBattle(trainingENEMY1,player);
                                 System.out.println("1) Mağarada ilerlemeye devam et");
                                 System.out.println("2) Mağaradan ayrıl");
                                 int firstStorySubOption111121 = input.nextInt();
@@ -1073,70 +1059,5 @@ public abstract class Game extends Player implements Engine{
         else {
             System.out.println("Yanlış seçim yaptın!");
         }
-        
-        
-       
-        
-        
-        
-       /*
-        Scanner input = new Scanner(System.in);
-        String name = null;
-        int hp,str,dex,agi;
-               
-// System.out.println("Now, you have to create an enemy.");
-        
-        System.out.println("1) Enter enemy's name:");
-        name = input.nextLine();
-                        
-        System.out.println("2) Enter enemy's HP:");
-        hp = input.nextInt();
-                    
-        System.out.println("3) Enter enemy's STR:");
-        str = input.nextInt();
-        
-        System.out.println("4) Enter enemy's DEX:");
-        dex = input.nextInt();
-        
-        System.out.println("5) Enter enemy's AGI:");
-        agi = input.nextInt();
-                
-        Enemy trainingENEMY1 = new Enemy(1,name,hp,str,dex,agi);
-        System.out.println("MOB ADI: "+trainingENEMY1.getEnemyName());
-        System.out.println("MOB HP : "+trainingENEMY1.getEnemyHP());
-        System.out.println("MOB STR: "+trainingENEMY1.getEnemySTR());
-        System.out.println("MOB DEX: "+trainingENEMY1.getEnemyDEX());
-        System.out.println("MOB DEX: "+trainingENEMY1.getEnemyAGI());
-        System.out.println("BATTLE IS STARTED!");
-        Battle newBattle = new Battle();
-        newBattle.createBattle();
-        if(getEnemyHP()<=0){
-            System.out.println("Congratulations. You won!");
-            System.out.println("Do you want to continue?");
-                System.out.println("1) Yes!");
-                System.out.println("2) NO:(");
-                option=input.nextInt();
-                if(option==1){
-                    Enemy trainingENEMY2 = new Enemy(1,name,hp,str,dex,agi);
-                    Battle newBattle2 = new Battle();
-                    newBattle2.createBattle();
-                } else {
-                    System.exit(0);
-                }
-        }
-        else {
-            System.out.println("You lost the battle.");
-            System.out.println("Do you want to try again?");
-                System.out.println("1) YES");
-                System.out.println("2) NO");
-                option=input.nextInt();
-                if(option==1){
-                    Enemy trainingENEMY2 = new Enemy(1,name,hp,str,dex,agi);
-                    Battle newBattle3 = new Battle();
-                    newBattle3.createBattle();
-                } else {
-                    System.exit(0);
-                }
-        }*/ 
     }  
 }

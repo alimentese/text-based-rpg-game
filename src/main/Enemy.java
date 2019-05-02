@@ -1,8 +1,7 @@
 package main;
 
-import static main.Player.playerHP;
 
-public class Enemy {
+public class Enemy extends Player  {
     
     protected static String enemyName;
     protected static int enemyClass; // 1-Knight, 2-Mage, 3-Rogue
@@ -11,6 +10,7 @@ public class Enemy {
     protected static int enemyDEX;
     protected static int enemyAGI;
     protected static int enemyAttackPOW;
+    int playerHP = getPlayerHP();
 
     public static int getEnemyAGI() {
         return enemyAGI;
@@ -77,7 +77,7 @@ public class Enemy {
         this.enemySTR = enemySTR;
     }
     
-    public static void enemyBasicAttack(){
+    public void enemyBasicAttack(){
         playerHP-=enemyAttackPOW;
         if(enemyAttackPOW>0){
             System.out.println(" You got "+enemyAttackPOW+" damage from enemy! ");
